@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Category" >
+    <menu>
+        <group  android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_category_all"
+                android:title="All" />
+            <item
+                android:id="@+id/nav_category_home"
+                android:title="Home" />
+            <item
+                android:id="@+id/nav_category_work"
+                android:title="Work" />
+            <item
+                android:id="@+id/nav_category_family"
+                android:title="Family" />
+            <item
+                android:id="@+id/nav_category_friends"
+                android:title="Friends" />
+        </group>
+    </menu>
+    </item>
+
+    <item android:title="Priority" >
+        <menu>
+            <group  android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_priority_high"
+                    android:title="High" />
+                <item
+                    android:id="@+id/nav_priority_medium"
+                    android:title="Medium" />
+                <item
+                    android:id="@+id/nav_priority_low"
+                    android:title="Low" />
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/nav_menu_completed" android:title="Show Completed"/>
+
+    <item android:title="Profile">
+        <menu>
+            <item android:title="Logout"
+                android:id="@+id/nav_profile_logout"/>
+        </menu>
+    </item>
+
+
+</menu>

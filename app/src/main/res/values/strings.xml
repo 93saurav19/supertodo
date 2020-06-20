@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Supertodo</string>
+
+
+    <string name="letsgetstarted">LETS GET STARTED</string>
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+
+    <!--Title -->
+    <string name="first_slide_title">Stay organized , Stay creative</string>
+    <string name="second_slide_title">Free up your mental space</string>
+
+
+    <!--Description -->
+    <string name="first_slide_description">Whether there is a work-related task or a personal goal, SuperTodo is here to help you manage all your to-dos.</string>
+    <string name="second_slide_description">Regain clarity and calmness by getting all those tasks out of your head and onto your to-do list (no matter where you are or what device you use).</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="enter_email" translatable="false">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_confirm_password">Confirm Password</string>
+    <string name="login_email_hint">Enter Email</string>
+    <string name="login_password_hint">Enter Password</string>
+    <string name="due_date">Due Date</string>
+    <string name="shared_prefs">supertodoprefs</string>
+
+
+</resources>

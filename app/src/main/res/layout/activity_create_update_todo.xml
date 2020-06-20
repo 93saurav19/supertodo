@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateUpdateTodo">
+
+    <LinearLayout
+        android:id="@+id/dashboard_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="8dp">
+
+            <ImageView
+                android:id="@+id/edit_activity_back_button"
+                android:layout_width="45dp"
+                android:onClick="gotoDashboard"
+                android:layout_height="45dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_back" />
+
+            <Button
+                android:id="@+id/edit_activity_add_button"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                android:text="Add"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:onClick="handleAddTodo"
+                android:textColor="@color/design_default_color_secondary_variant"
+                android:padding="5dp"
+                android:src="@drawable/add_icon" />
+
+            <Button
+                android:id="@+id/edit_activity_edit_button"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:visibility="invisible"
+                android:text="Update"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:onClick="handleEditTodo"
+                android:textColor="@color/design_default_color_secondary_variant"
+                android:padding="5dp"
+                android:src="@drawable/add_icon" />
+
+            <TextView
+                android:id="@+id/edit_activity_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Todo"
+                android:textAllCaps="true"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_activity_todo_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Enter Title"
+                app:hintTextColor="@android:color/black"
+                app:boxStrokeColor="@android:color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:startIconDrawable="@drawable/icon_title"
+                app:startIconTint="@android:color/black"
+                app:endIconMode="clear_text"
+                app:endIconTint="@android:color/black"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_activity_todo_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="sans-serif-black"
+                    android:inputType="textEmailAddress"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_activity_todo_duedate_layout"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Due Date"
+                app:hintTextColor="@android:color/black"
+                app:boxStrokeColor="@android:color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:startIconDrawable="@drawable/icon_date"
+                app:startIconTint="@android:color/black"
+                app:errorTextAppearance="@android:color/holo_red_dark"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_activity_todo_duedate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif-black"
+                    android:inputType="date"
+                    android:textColor="@android:color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:id="@+id/edit_activity_priority_group"
+                app:singleSelection="true"
+                app:checkedButton="@id/edit_activity_priority_medium"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/edit_activity_priority_high"
+                    android:text="High"
+                    android:textColor="@color/design_default_color_error"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/edit_activity_priority_medium"
+                    android:text="Medium"
+                    android:textColor="@color/card3"
+                    android:textSize="12sp"
+                    android:layout_weight="1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:textAllCaps="false"
+                    android:id="@+id/edit_activity_priority_low"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:layout_weight="1"
+                    android:text="Low"
+                    android:textSize="12sp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_activity_todo_description_layout"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@android:color/black"
+                android:hint="Description"
+                app:hintTextColor="@android:color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:startIconDrawable="@drawable/icon_description"
+                app:startIconTint="@android:color/black"
+                app:errorTextAppearance="@android:color/holo_red_dark"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_activity_todo_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-black"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:textColor="@android:color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="match_parent"
+                android:id="@+id/edit_activity_category_group"
+                app:singleSelection="true"
+                app:checkedButton="@id/edit_activity_category_home"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/edit_activity_category_home"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textSize="12sp"
+                    android:paddingRight="4dp"
+                    android:paddingLeft="4dp"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/edit_activity_category_work"
+                    android:text="Work"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:textSize="12sp"
+                    android:paddingRight="4dp"
+                    android:paddingLeft="4dp"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:id="@+id/edit_activity_category_family"
+                    android:text="Family"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:textSize="12sp"
+                    android:paddingRight="4dp"
+                    android:paddingLeft="4dp"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/edit_activity_category_friends"
+                    android:text="Friends"
+                    android:textSize="12sp"
+                    android:paddingRight="4dp"
+                    android:paddingLeft="4dp"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+
+
+
+            <Button
+                android:id="@+id/add_todo_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:visibility="visible"
+                android:onClick="handleAddTodo"
+                android:text="Add Todo Item" />
+            <Button
+                android:id="@+id/update_todo_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:visibility="invisible"
+                android:onClick="handleEditTodo"
+                android:text="Update Todo Item" />
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
